@@ -1,4 +1,6 @@
-const POST = {
+import { Post } from "src/models/post";
+
+const POST: Post = {
     "userId": 1,
     "id": 1,
     "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
@@ -26,4 +28,11 @@ const   USERS = [
       }
     ];
 
-export {POST, USERS}
+const UpdatedPost: Post = {
+  userId: 1,
+  title: "HI from G-SCOP",
+  body: "body....",
+  id: 1
+};
+
+export {POST, UpdatedPost, USERS}

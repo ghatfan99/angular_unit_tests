@@ -25,7 +25,7 @@ export class HomeService {
     return this.httpClient.get<Post>(`${this.postUrl}/${idPost}`);
   }
 
-  updatePost(idPost: number): Observable<Post> {
+ updatePost(idPost: number): Observable<Post> {
     const post: Post = {
       userId: 1,
       title: "HI from G-SCOP",

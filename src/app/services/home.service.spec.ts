@@ -3,8 +3,7 @@ import { HttpClientTestingModule, HttpTestingController} from '@angular/common/h
 
 import { HomeService } from './home.service';
 
-import { POST, USERS } from 'src/mocks/data';
-import { Post } from 'src/models/post';
+import { POST, UpdatedPost, USERS } from 'src/mocks/data';
 
 describe('HomeService', () => {
   let httpTestingController: HttpTestingController;
@@ -71,24 +70,18 @@ describe('HomeService', () => {
   });
 
   // la méthode appelle updatePost by son id
-  it('Cette méthode doit mettre à jour un post par son id', () => {
-    const updatedPost: Post = {
-      userId: 1,
-      title: "HI from G-SCOP",
-      body: "body....",
-      id: 1
-    };
+  it('Cette méthode doit mettre à jour un post par son id', (done) => {
 
     service.updatePost(1).subscribe((data) => {
       console.log(data);      
-      expect(data).toEqual(updatedPost);
+      expect(data).toEqual(UpdatedPost);
+      done();
     });
-
-    const req = httpTestingController.expectNone({
+    const resU = httpTestingController.expectOne({
       method: 'PUT'
     });
 
-//    req.flush(updatedPost);
+    resU.flush(UpdatedPost);
   });
 
 });

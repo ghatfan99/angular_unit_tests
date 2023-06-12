@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     this.homeS.updatePost(1)
     .subscribe({
       next: (value: Post) => {
-        return console.log(value);        
+        console.log(value);        
       }, 
       error: (error) => console.log('error in get get Post details')      
     });
